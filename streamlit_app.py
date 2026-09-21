@@ -53,20 +53,19 @@ if ingredients_list:
       st.write('the search value for', fruit_chosen,' is ', search_on, '.')
 
   
-    for ingredient in ingredients_list:
-    st.write(ingredients_string)
-
-    my_insert_stmt = f"""insert into smoothies.public.orders(ingredients, name_on_order)
-            values ('{ingredients_string}', '{name_of_order}')"""
-
+      st.write(ingredients_string)
+      
+      my_insert_stmt = f"""insert into smoothies.public.orders(ingredients, name_on_order)
+      values ('{ingredients_string}', '{name_of_order}')"""
+      
 
     
 
     time_to_insert=st.button('summit order')
     
     if time_to_insert:
-        session.sql(my_insert_stmt).collect()
-        st.success('Your Smoothie is ordered!', icon="✅")
+      session.sql(my_insert_stmt).collect()
+      st.success('Your Smoothie is ordered!', icon="✅")
 
 
 
